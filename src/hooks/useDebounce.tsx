@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useDebounce = (query: string, timer: number) => {
   const [searchTerm, setSearchTerm] = useState(query);
