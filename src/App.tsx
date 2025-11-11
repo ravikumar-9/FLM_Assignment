@@ -74,7 +74,7 @@ const App: React.FC = () => {
   const [total, setTotal] = useState(0);
   const limit = 10;
 
-  const fetchCompanies = async () => {
+  const fetchCompanies = useCallback(async () => {
     try {
       const raw = await fetch("/companies.json");
       let filtered: Company[] = await raw.json();
@@ -96,7 +96,7 @@ const App: React.FC = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [filters, search, page, limit]);
 
   useEffect(() => {
     fetchCompanies();
